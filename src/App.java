@@ -1,15 +1,17 @@
+import controllers.MaquinaController;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
-import java.util.Stack;
-
-import controllers.MaquinaController;
 import models.Maquina;
 
 public class App {
     public static void main(String[] args) throws Exception {
         List<Maquina> maquinas = crearMaquinas();
-
+        MaquinaController controlador=new MaquinaController();
+        System.out.println("Subred, Riesgo");
+        for (Maquina maquina : maquinas) {
+            System.out.println(maquina.getSubred()+", "+maquina.getRiesgo());
+        }
+        System.out.println((controlador.filtrarPorSubred(maquinas, 10)).toString());
     }
 
     static List<Maquina> crearMaquinas() {
